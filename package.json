@@ -1,0 +1,31 @@
+{
+  "name": "hive-plugin-cursor-broadcast-codemirror",
+  "version": "0.0.2",
+  "description": "Broadcast the cursors of everyone editing the document -- plugin for hive.js",
+  "main": "index.js",
+  "dependencies": {
+    "through2": "1.x",
+    "json-stream": "1.x",
+    "virtual-dom": "2.x",
+    "co": "4.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hivejs/hive-plugin-cursor-broadcast-codemirror.git"
+  },
+  "keywords": [
+    "hivejs",
+    "hive.js"
+  ],
+  "author": "Marcel Klehr <mklehr@gmx.net>",
+  "license": {
+    "license": "GPL-3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/hivejs/hive-plugin-cursor-broadcast-codemirror/issues"
+  },
+  "homepage": "https://github.com/hivejs/hive-plugin-cursor-broadcast-codemirror"
+}
