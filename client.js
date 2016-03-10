@@ -82,9 +82,9 @@ function setup(plugin, imports, register) {
 	       return editableDocument.codemirror.markText(sel.anchor, sel.head, {
 		 clearWhenEmpty: false
 	       , replacedWith: vdom.create(h('span', {
-                   title: user.name
+                   title: user.attributes.name
                  , style: {
-                     border:'2px solid '+(user.color || '#777')
+                     border:'2px solid '+(user.attributes.color || '#777')
                    , position: 'absolute'
                    , height: '100%'
                    }
@@ -92,9 +92,9 @@ function setup(plugin, imports, register) {
 	       })
              }else{
                return editableDocument.codemirror.markText(sel.anchor, sel.head, {
-                 title: user.name
+                 title: user.attributes.name
                , clearWhenEmpty: false
-               , css: 'border: 2px solid '+(user.color || '#777')
+               , css: 'border: 2px solid '+(user.attributes.color || '#777')
                })
              }
           })
