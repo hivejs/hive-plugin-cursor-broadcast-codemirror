@@ -48,9 +48,9 @@ function setup(plugin, imports, register) {
 	this.push(obj)
 	callback()
       }))
-      .pipe(JSONStringify())
+      .pipe(writeAll = JSONStringify())
       .pipe(brdcst)
-      .pipe(writeAll = JSONParse())
+      .pipe(JSONParse())
       .pipe(through.obj(function(broadcastCursors, enc, callback) {
 	for(var userId in broadcastCursors) {
 	  cursors[document][userId] = broadcastCursors[userId]
