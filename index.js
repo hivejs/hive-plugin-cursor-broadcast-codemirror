@@ -54,6 +54,7 @@ function setup(plugin, imports, register) {
       .pipe(through.obj(function(broadcastCursors, enc, callback) {
 	for(var userId in broadcastCursors) {
 	  cursors[document][userId] = broadcastCursors[userId]
+          if(!broadcastCursors[userId]) delete cursors[document][userId]
 	}
 	this.push(broadcastCursors)
 	callback()
@@ -63,7 +64,7 @@ function setup(plugin, imports, register) {
 
       client.on('close', function() {
         writeAll.write({[user.id]: null})
-        cursors[document][user.id] = null
+        delete cursors[document][user.id]
       })
 
       client.write(JSON.stringify(cursors[document])+'\n')
