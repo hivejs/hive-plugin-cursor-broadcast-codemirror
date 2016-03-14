@@ -37,6 +37,8 @@ function setup(plugin, imports, register) {
       if((yield orm.collections.document.findOne(document)).type !== 'text/plain') return
       if(!cursors[document]) cursors[document] = {}
 
+      var writeAll
+
       client
       .pipe(JSONParse())
       .pipe(through.obj(function(myCursor, enc, callback) {
@@ -48,7 +50,7 @@ function setup(plugin, imports, register) {
       }))
       .pipe(JSONStringify())
       .pipe(brdcst)
-      .pipe(JSONParse())
+      .pipe(writeAll = JSONParse())
       .pipe(through.obj(function(broadcastCursors, enc, callback) {
 	for(var userId in broadcastCursors) {
 	  cursors[document][userId] = broadcastCursors[userId]
@@ -58,6 +60,11 @@ function setup(plugin, imports, register) {
       }))
       .pipe(JSONStringify())
       .pipe(client)
+
+      client.on('close', function() {
+        writeAll.write({[user.id]: null})
+        cursors[document][user.id] = null
+      })
 
       client.write(JSON.stringify(cursors[document])+'\n')
     })
