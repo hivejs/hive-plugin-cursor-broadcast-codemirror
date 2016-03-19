@@ -42,7 +42,7 @@ function setup(plugin, imports, register) {
       for(var userId in newState.cursors) {
         if(!newState.cursors[userId]) delete newState.cursors[userId]
       }
-      return newstate
+      return newState
     }
     return state
   }
