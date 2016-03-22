@@ -1,6 +1,6 @@
 {
   "name": "hive-plugin-cursor-broadcast-codemirror",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Broadcast the cursors of everyone editing the document -- plugin for hive.js",
   "main": "index.js",
   "dependencies": {
