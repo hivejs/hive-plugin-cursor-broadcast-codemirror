@@ -90,10 +90,10 @@ function setup(plugin, imports, register) {
                  , style: {
                      border:'2px solid '+(user.attributes.color || '#777')
                    , position: 'absolute'
-                   , height: '100%'
+                   , width: '0'
                    }
-                 }))
-	       })
+                 }, ' '))
+               })
              }else{
                return editableDocument.codemirror.markText(sel.anchor, sel.head, {
                  title: user.attributes.name
