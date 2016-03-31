@@ -89,7 +89,7 @@ function setup(plugin, imports, register) {
                    title: user.attributes.name
                  , style: {
                      border:'2px solid '+(user.attributes.color || '#777')
-                   , position: 'absolute'
+                   , display: 'inline-block'
                    , width: '0'
                    }
                  }, ' '))
